@@ -1,4 +1,8 @@
+#superuser - abc
+#password -1234
 
+#user- gas
+#password- 1234
 # Gas Utility Services Application
 
 This Django application addresses the high volume of customer service requests faced by a gas utility company. It provides a user-friendly platform for customers to submit service requests online, track their status, and view their account information. Additionally, customer support representatives are equipped with efficient tools to manage incoming requests and provide timely assistance to customers.
