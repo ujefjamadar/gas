@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}Submit Request - Gas Utility Services{% endblock %}
+{% block content %}
+<div class="submit-request">
+    <h2>Submit Request</h2>
+    <form action="/req" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="type_of_request">Type of Request:</label>
+            <select name="type_of_request" id="type_of_request" class="form-control">
+                <option value="gas_connection">Gas Connection</option>
+                <option value="leak_repair">Leak Repair</option>
+                <option value="billing_query">Billing Query</option>
+                <!-- Add more options as needed -->
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="details">Details:</label>
+            <textarea name="details" id="details" cols="30" rows="5" class="form-control"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="files">
+                Attach Files
+                <!-- <span class="browse-button btn">Browse</span> -->
+                <input type="file" name="files" id="files">
+            </label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+{% endblock %}

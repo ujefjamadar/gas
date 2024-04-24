@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}Service Requests - Gas Utility Services{% endblock %}
+
+{% block content %}
+<div class="service-requests">
+    <h2>Service Requests</h2>
+    {% if service_requests %}
+    <table class="request-table">
+        <thead>
+            <tr>
+                <th>Type of Request</th>
+                <th>Details</th>
+                <th>Status</th>
+                <th>Submission Date</th>
+                <th>Resolution Date</th>
+                <th>Customer</th>
+                <th>Files</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for request in service_requests %}
+            <tr>
+                <td>{{ request.type_of_request }}</td>
+                <td>{{ request.details }}</td>
+                <td>{{ request.status }}</td>
+                <td>{{ request.submission_date }}</td>
+                <td>{{ request.resolution_date }}</td>
+                <td>{{ request.customer }}</td>
+                <td>
+                    {% if request.files %}
+                    <a href="{{ request.files.url }}">Download File</a>
+                    {% else %}
+                    No file attached
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No service requests found.</p>
+    {% endif %}
+</div>
+{% endblock %}
